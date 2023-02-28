@@ -14,6 +14,7 @@ import org.training.foodorderapplication.exception.NoSearchDataException;
 import org.training.foodorderapplication.repository.FoodItemRepository;
 import org.training.foodorderapplication.repository.VendorRepository;
 import org.training.foodorderapplication.service.FoodItemService;
+import org.training.foodorderapplication.service.VendorService;
 
 @Service
 public class FoodItemServiceImpl implements FoodItemService {
@@ -22,7 +23,7 @@ public class FoodItemServiceImpl implements FoodItemService {
 	private FoodItemRepository itemRepository;
 
 	@Autowired
-	private VendorRepository vendorRepository;
+	private VendorService vendorService;
 
 	@Override
 	public List<FoodItemDto> getFoodVendorName(String foodVendorName) {
@@ -30,7 +31,7 @@ public class FoodItemServiceImpl implements FoodItemService {
 		List<FoodItem> item = itemRepository.findByItemNameContains(foodVendorName);
 		List<FoodItemDto> itemDtos = new ArrayList<>();
 		if (item.isEmpty()) {
-			Vendor vendors = vendorRepository.findByVendorName(foodVendorName);
+			Vendor vendors = vendorService.findByVendorName(foodVendorName);
 			itemRepository.findByVendors(vendors).forEach(e -> {
 				List<VendorDto> vendorDtos = new ArrayList<>();
 				e.getVendors().forEach(v -> {
