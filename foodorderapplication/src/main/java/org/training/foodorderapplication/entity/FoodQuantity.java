@@ -16,7 +16,7 @@ public class FoodQuantity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int foodQuantityId;
 	
-	private String foodName;
+	private int foodId;
 	
 	@ManyToOne
 	private Vendor vendor;
