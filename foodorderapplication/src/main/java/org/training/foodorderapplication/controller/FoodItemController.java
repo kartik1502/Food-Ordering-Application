@@ -20,7 +20,7 @@ public class FoodItemController {
 	private FoodItemService itemService;
 
 	@GetMapping("/items")
-	public ResponseEntity<List<FoodItemDto>> getfoodvendorName(@RequestParam String foodVendorName) {
+	public ResponseEntity<List<FoodItemDto>> getFoodVendorName(@RequestParam String foodVendorName) {
 		return new ResponseEntity<>(itemService.getFoodVendorName(foodVendorName), HttpStatus.OK);
 	}
 
