@@ -1,16 +1,15 @@
 package org.training.foodorderapplication.exception;
 
-public class NoSearchDataException extends RuntimeException {
-
+public class NoOrderHistoryAvailable extends RuntimeException {
 	private static final long serialVersionUID = 1L;
-
 	private String message;
 
-	public NoSearchDataException(String message) {
-		super(message);
+	public NoOrderHistoryAvailable(String message) {
+		super();
+		this.message = message;
 	}
 
-	public NoSearchDataException() {
+	public NoOrderHistoryAvailable() {
 		super();
 	}
 
@@ -21,4 +20,5 @@ public class NoSearchDataException extends RuntimeException {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
 }

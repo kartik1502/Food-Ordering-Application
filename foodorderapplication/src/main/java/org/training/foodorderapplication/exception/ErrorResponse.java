@@ -3,7 +3,6 @@ package org.training.foodorderapplication.exception;
 import java.util.List;
 
 public class ErrorResponse {
-
 	private long errorCode;
 
 	private List<String> errors;

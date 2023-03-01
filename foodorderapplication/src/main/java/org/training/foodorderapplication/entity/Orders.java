@@ -24,6 +24,7 @@ public class Orders {
 	private int ordersId;
 
 	@OneToMany(cascade = CascadeType.ALL)
+
 	private List<FoodQuantity> foodQuantities;
 
 	@ManyToOne

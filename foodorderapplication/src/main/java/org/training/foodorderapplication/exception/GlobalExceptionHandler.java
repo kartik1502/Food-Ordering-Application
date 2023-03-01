@@ -26,7 +26,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		ErrorResponse response = new ErrorResponse(400l, errorDetails);
 		return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 	}
-
+	
 	@ExceptionHandler(NoSuchUserExists.class)
 	public ResponseEntity<Object> handleNoSuchUserExistsException(NoSuchUserExists ex, WebRequest req) {
 		List<String> errors = new ArrayList<>();
@@ -48,4 +48,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<>(new ErrorResponse(404l, errors), HttpStatus.NOT_FOUND);
 	}
 
+	@ExceptionHandler(value =NoOrderHistoryAvailable.class)
+	public ResponseEntity<Object> exception(NoOrderHistoryAvailable exception) {
+		return new ResponseEntity<>("No search history available", HttpStatus.NOT_FOUND);
+	}
+	
 }
