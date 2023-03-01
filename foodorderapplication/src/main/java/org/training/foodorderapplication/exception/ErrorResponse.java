@@ -5,12 +5,12 @@ import java.util.List;
 public class ErrorResponse {
 	private long errorCode;
 
-	private List<String> errorDetails;
+	private List<String> errors;
 
-	public ErrorResponse(long errorCode, List<String> errorDetails) {
+	public ErrorResponse(long errorCode, List<String> errors) {
 		super();
 		this.errorCode = errorCode;
-		this.errorDetails = errorDetails;
+		this.errors = errors;
 	}
 
 	public ErrorResponse() {
@@ -25,12 +25,12 @@ public class ErrorResponse {
 		this.errorCode = errorCode;
 	}
 
-	public List<String> getErrorDetails() {
-		return errorDetails;
+	public List<String> getErrors() {
+		return errors;
 	}
 
-	public void setErrorDetails(List<String> errorDetails) {
-		this.errorDetails = errorDetails;
+	public void setErrors(List<String> errors) {
+		this.errors = errors;
 	}
 
 }

@@ -3,22 +3,22 @@ package org.training.foodorderapplication.dto;
 import lombok.Data;
 
 @Data
-public class FoodQuantityDto {
+public class FoodQuantityDtoCreate {
 
 	private int foodId;
 
-	private VendorDto VendorDto;
+	private int vendorId;
 
 	private int quantity;
 
-	public FoodQuantityDto(int foodId, VendorDto vendorDto, int quantity) {
+	public FoodQuantityDtoCreate(int foodId, int vendorId, int quantity) {
 		super();
 		this.foodId = foodId;
-		this.VendorDto = vendorDto;
+		this.vendorId = vendorId;
 		this.quantity = quantity;
 	}
 
-	public FoodQuantityDto() {
+	public FoodQuantityDtoCreate() {
 		super();
 	}
 

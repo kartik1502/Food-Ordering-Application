@@ -26,11 +26,28 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		ErrorResponse response = new ErrorResponse(400l, errorDetails);
 		return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 	}
-
-	@ExceptionHandler(value =NoSuchUserExists.class)
-	public ResponseEntity<Object> exception(NoSuchUserExists exception) {
-		return new ResponseEntity<>("No such user exists", HttpStatus.NOT_FOUND);
+	
+	@ExceptionHandler(NoSuchUserExists.class)
+	public ResponseEntity<Object> handleNoSuchUserExistsException(NoSuchUserExists ex, WebRequest req) {
+		List<String> errors = new ArrayList<>();
+		errors.add(ex.getLocalizedMessage());
+		return new ResponseEntity<>(new ErrorResponse(404l, errors), HttpStatus.NOT_FOUND);
 	}
+
+	@ExceptionHandler(NoSuchFoodExists.class)
+	public ResponseEntity<Object> handleNoSuchFoodExistsException(NoSuchFoodExists ex, WebRequest req) {
+		List<String> errors = new ArrayList<>();
+		errors.add(ex.getLocalizedMessage());
+		return new ResponseEntity<>(new ErrorResponse(404l, errors), HttpStatus.NOT_FOUND);
+	}
+
+	@ExceptionHandler(NoSuchVendorExists.class)
+	public ResponseEntity<Object> handleNoSuchVendorExistsException(NoSuchVendorExists ex, WebRequest req) {
+		List<String> errors = new ArrayList<>();
+		errors.add(ex.getLocalizedMessage());
+		return new ResponseEntity<>(new ErrorResponse(404l, errors), HttpStatus.NOT_FOUND);
+	}
+
 	@ExceptionHandler(value =NoOrderHistoryAvailable.class)
 	public ResponseEntity<Object> exception(NoOrderHistoryAvailable exception) {
 		return new ResponseEntity<>("No search history available", HttpStatus.NOT_FOUND);
