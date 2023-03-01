@@ -1,5 +1,7 @@
 package org.training.foodorderapplication.service.implementation;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.training.foodorderapplication.entity.Vendor;
@@ -10,11 +12,15 @@ import org.training.foodorderapplication.service.VendorService;
 public class VendorServiceImpl implements VendorService {
 
 	@Autowired
-	private VendorRepository vendorRepository;
+	private VendorRepository repository;
+	
+	@Override
+	public Optional<Vendor> findById(int vendorId) {
+		return repository.findById(vendorId); 
 
 	@Override
 	public Vendor findByVendorName(String foodVendorName) {
-		return vendorRepository.findByVendorName(foodVendorName);
+		return repository.findByVendorName(foodVendorName);
 	}
 
 }

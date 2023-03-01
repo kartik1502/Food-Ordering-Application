@@ -15,6 +15,8 @@ public class FoodQuantity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int foodQuantityId;
+	
+	private int foodId;
   
 	private String foodName;
 	
