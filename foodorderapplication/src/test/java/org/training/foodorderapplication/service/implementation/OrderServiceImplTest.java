@@ -173,7 +173,7 @@ public class OrderServiceImplTest {
 		Optional<Users> optionalUser = Optional.of(user);
 		Mockito.when(userService.findById(userId)).thenReturn(optionalUser);
 		List<Orders> orders = new ArrayList<>();
-		NoOrderHistoryAvailable exception = assertThrows(NoOrderHistoryAvailable.class, () -> {
+		assertThrows(NoOrderHistoryAvailable.class, () -> {
 			orderService.purchaseHistory(1, "week");
 			Mockito.when(ordersRepository.findByUserWeek(userId)).thenReturn(orders);
 			orderService.purchaseHistory(userId, filterType);

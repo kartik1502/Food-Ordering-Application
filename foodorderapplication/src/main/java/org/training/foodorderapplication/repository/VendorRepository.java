@@ -9,4 +9,5 @@ public interface VendorRepository extends JpaRepository<Vendor, Integer> {
 
 	List<Vendor> findAllByVendorIdIn(List<Integer> vendorIds);
 
+	List<Vendor> findByVendorNameContainingIgnoreCase(String foodVendorName);
 }

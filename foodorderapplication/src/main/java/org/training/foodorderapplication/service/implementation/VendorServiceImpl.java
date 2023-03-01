@@ -30,4 +30,9 @@ public class VendorServiceImpl implements VendorService {
 		return repository.findAll();
 	}
 
+	@Override
+	public List<Vendor> findByVendorNameContainingIgnoreCase(String foodVendorName) {
+		return repository.findByVendorNameContainingIgnoreCase(foodVendorName);
+	}
+
 }

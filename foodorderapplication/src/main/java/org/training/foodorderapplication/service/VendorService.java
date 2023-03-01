@@ -12,5 +12,7 @@ public interface VendorService {
 	List<Vendor> findAllByVendorIdIn(List<Integer> vendorIds);
 
 	List<Vendor> findAll();
+	
+	List<Vendor> findByVendorNameContainingIgnoreCase(String foodVendorName);
 
 }

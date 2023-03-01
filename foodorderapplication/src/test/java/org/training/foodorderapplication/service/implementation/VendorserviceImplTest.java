@@ -13,7 +13,6 @@ import org.mockito.Mockito;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.training.foodorderapplication.entity.Vendor;
 import org.training.foodorderapplication.repository.VendorRepository;
-import org.training.foodorderapplication.service.implementation.VendorServiceImpl;
 
 @ExtendWith(SpringExtension.class)
 public class VendorserviceImplTest {
