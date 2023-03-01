@@ -1,0 +1,81 @@
+2023-03-01 11:56:59.019  INFO 23480 --- [restartedMain] o.t.f.FoodorderapplicationApplication    : Starting FoodorderapplicationApplication using Java 17.0.4.1 on Karthik with PID 23480 (C:\Users\karti\OneDrive\Documents\HCL Training\spring-workspace\foodorderapplication\target\classes started by karti in C:\Users\karti\OneDrive\Documents\HCL Training\spring-workspace\foodorderapplication)
+2023-03-01 11:56:59.021  INFO 23480 --- [restartedMain] o.t.f.FoodorderapplicationApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-03-01 11:56:59.092  INFO 23480 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-03-01 11:56:59.093  INFO 23480 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-03-01 11:57:00.287  INFO 23480 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-01 11:57:00.397  INFO 23480 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 93 ms. Found 4 JPA repository interfaces.
+2023-03-01 11:57:01.262  INFO 23480 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-01 11:57:01.279  INFO 23480 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-01 11:57:01.280  INFO 23480 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-01 11:57:01.719  INFO 23480 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-01 11:57:01.719  INFO 23480 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2625 ms
+2023-03-01 11:57:01.767  INFO 23480 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-01 11:57:02.090  INFO 23480 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-01 11:57:02.100  INFO 23480 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/foodorderapplication'
+2023-03-01 11:57:02.230  INFO 23480 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-01 11:57:02.337  INFO 23480 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-03-01 11:57:02.601  INFO 23480 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-03-01 11:57:02.801  INFO 23480 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-03-01 11:57:03.832  INFO 23480 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-01 11:57:03.845  INFO 23480 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 11:57:04.505  WARN 23480 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-01 11:57:05.653  INFO 23480 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-01 11:57:05.711  INFO 23480 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-01 11:57:05.723  INFO 23480 --- [restartedMain] o.t.f.FoodorderapplicationApplication    : Started FoodorderapplicationApplication in 7.264 seconds (JVM running for 8.543)
+2023-03-01 11:59:43.496  INFO 23480 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-03-01 11:59:43.523  INFO 23480 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-03-01 11:59:43.531  INFO 23480 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 11:59:43.534  INFO 23480 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-01 11:59:43.543  INFO 23480 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-03-01 11:59:43.613  INFO 23480 --- [restartedMain] o.t.f.FoodorderapplicationApplication    : Starting FoodorderapplicationApplication using Java 17.0.4.1 on Karthik with PID 23480 (C:\Users\karti\OneDrive\Documents\HCL Training\spring-workspace\foodorderapplication\target\classes started by karti in C:\Users\karti\OneDrive\Documents\HCL Training\spring-workspace\foodorderapplication)
+2023-03-01 11:59:43.614  INFO 23480 --- [restartedMain] o.t.f.FoodorderapplicationApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-03-01 11:59:43.804  INFO 23480 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-01 11:59:43.824  INFO 23480 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 4 JPA repository interfaces.
+2023-03-01 11:59:43.914  INFO 23480 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-01 11:59:43.915  INFO 23480 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-01 11:59:43.915  INFO 23480 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-01 11:59:43.942  INFO 23480 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-01 11:59:43.942  INFO 23480 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 325 ms
+2023-03-01 11:59:43.954  INFO 23480 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-03-01 11:59:43.967  INFO 23480 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-03-01 11:59:43.967  INFO 23480 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/foodorderapplication'
+2023-03-01 11:59:43.989  INFO 23480 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-01 11:59:43.994  INFO 23480 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-03-01 11:59:44.092  INFO 23480 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-01 11:59:44.093  INFO 23480 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 11:59:44.239  WARN 23480 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-01 11:59:45.145  INFO 23480 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-01 11:59:45.157  INFO 23480 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-01 11:59:45.161  INFO 23480 --- [restartedMain] o.t.f.FoodorderapplicationApplication    : Started FoodorderapplicationApplication in 1.578 seconds (JVM running for 167.981)
+2023-03-01 11:59:45.163  INFO 23480 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-03-01 11:59:46.603  INFO 23480 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-03-01 11:59:46.612  INFO 23480 --- [Thread-7] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-03-01 11:59:46.618  INFO 23480 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 11:59:46.619  INFO 23480 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-03-01 11:59:46.625  INFO 23480 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-03-01 11:59:46.697  INFO 23480 --- [restartedMain] o.t.f.FoodorderapplicationApplication    : Starting FoodorderapplicationApplication using Java 17.0.4.1 on Karthik with PID 23480 (C:\Users\karti\OneDrive\Documents\HCL Training\spring-workspace\foodorderapplication\target\classes started by karti in C:\Users\karti\OneDrive\Documents\HCL Training\spring-workspace\foodorderapplication)
+2023-03-01 11:59:46.698  INFO 23480 --- [restartedMain] o.t.f.FoodorderapplicationApplication    : No active profile set, falling back to 1 default profile: "default"
+2023-03-01 11:59:46.886  INFO 23480 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-01 11:59:46.906  INFO 23480 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19 ms. Found 4 JPA repository interfaces.
+2023-03-01 11:59:46.983  INFO 23480 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-01 11:59:46.984  INFO 23480 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-01 11:59:46.984  INFO 23480 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.71]
+2023-03-01 11:59:47.011  INFO 23480 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-03-01 11:59:47.011  INFO 23480 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 312 ms
+2023-03-01 11:59:47.030  INFO 23480 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2023-03-01 11:59:47.049  INFO 23480 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2023-03-01 11:59:47.049  INFO 23480 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:mysql://localhost:3306/foodorderapplication'
+2023-03-01 11:59:47.067  INFO 23480 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-01 11:59:47.072  INFO 23480 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-03-01 11:59:47.158  INFO 23480 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-01 11:59:47.158  INFO 23480 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 11:59:47.276  WARN 23480 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-01 11:59:47.720  INFO 23480 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-03-01 11:59:47.730  INFO 23480 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-03-01 11:59:47.733  INFO 23480 --- [restartedMain] o.t.f.FoodorderapplicationApplication    : Started FoodorderapplicationApplication in 1.067 seconds (JVM running for 170.554)
+2023-03-01 11:59:47.735  INFO 23480 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-03-01 12:02:14.867  INFO 23480 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-03-01 12:02:14.880  INFO 23480 --- [Thread-11] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-03-01 12:02:14.895  INFO 23480 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-01 12:02:14.895  INFO 23480 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2023-03-01 12:02:14.907  INFO 23480 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
