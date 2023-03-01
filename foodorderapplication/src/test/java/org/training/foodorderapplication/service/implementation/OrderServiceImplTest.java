@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,6 +24,7 @@ import org.training.foodorderapplication.entity.FoodQuantity;
 import org.training.foodorderapplication.entity.Orders;
 import org.training.foodorderapplication.entity.Users;
 import org.training.foodorderapplication.entity.Vendor;
+import org.training.foodorderapplication.exception.NoOrderHistoryAvailable;
 import org.training.foodorderapplication.exception.NoSuchUserExists;
 import org.training.foodorderapplication.repository.OrdersRepository;
 import org.training.foodorderapplication.service.UserService;
@@ -35,7 +37,7 @@ public class OrderServiceImplTest {
 
 	@InjectMocks
 	private OrdersServiceImpl ordersService;
-	
+
 	@Mock
 	private UserService userService;
 
@@ -97,7 +99,7 @@ public class OrderServiceImplTest {
 		vendor.setVendorId(1);
 		foodQuantity.setVendor(vendor);
 		order.setFoodQuantities(Arrays.asList(foodQuantity));
-		
+
 		order.setUser(user);
 		orders.add(order);
 		Mockito.when(ordersRepository.findByUserMonth(userId)).thenReturn(orders);
@@ -121,7 +123,8 @@ public class OrderServiceImplTest {
 		assertEquals(expectedOrders.size(), actualOrders.size());
 		assertEquals(expectedOrders.get(0).getOrderDate(), actualOrders.get(0).getOrderDate());
 	}
-@Test
+
+	@Test
 	public void testOrderWithInvalidUser() {
 
 		Mockito.when(ordersRepository.findByUserMonth(Mockito.anyInt())).thenReturn(null);
@@ -138,4 +141,21 @@ public class OrderServiceImplTest {
 		assertEquals("User with user Id:1 dose not exists", exception.getMessage());
 	}
 
+	@Test
+	public void testPurchaseHistoryWithNoOrderHistory() {
+		int userId = 1;
+		String filterType = "week";
+		Users user = new Users();
+		user.setUserId(userId);
+		user.setUserName("Ameen");
+		user.setUserEmail("ameen@example.com");
+		Optional<Users> optionalUser = Optional.of(user);
+		Mockito.when(userService.findById(userId)).thenReturn(optionalUser);
+		List<Orders> orders = new ArrayList<>();
+		NoOrderHistoryAvailable exception = assertThrows(NoOrderHistoryAvailable.class, () -> {
+			ordersService.purchaseHistory(1, "week");
+			Mockito.when(ordersRepository.findByUserWeek(userId)).thenReturn(orders);
+			ordersService.purchaseHistory(userId, filterType);
+		});
+	}
 }

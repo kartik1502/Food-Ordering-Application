@@ -5,6 +5,19 @@ import javax.validation.constraints.Pattern;
 
 public class VendorDto {
 
+	
+
+	public VendorDto(@NotNull @Pattern(regexp = "[a-zA-Z ]+", message = "Enter a valid Vendor name") String vendorName,
+			@NotNull @Pattern(regexp = "[a-zA-Z ]+", message = "Enter a valid Vendor company name") String companyName) {
+		super();
+		this.vendorName = vendorName;
+		this.companyName = companyName;
+	}
+
+	public VendorDto() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getVendorName() {
 		return vendorName;
 	}

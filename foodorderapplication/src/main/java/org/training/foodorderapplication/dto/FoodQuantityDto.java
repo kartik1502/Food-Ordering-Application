@@ -2,6 +2,17 @@ package org.training.foodorderapplication.dto;
 
 public class FoodQuantityDto {
 
+	public FoodQuantityDto(int foodId, VendorDto vendor, int userId) {
+		super();
+		this.foodId = foodId;
+		this.vendor = vendor;
+		this.quantity = userId;
+	}
+
+	public FoodQuantityDto() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getQuantity() {
 		return quantity;
 	}

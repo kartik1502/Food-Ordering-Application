@@ -10,6 +10,19 @@ public class OrdersDto {
 
 	private LocalDate orderDate;
 
+	
+	
+	public OrdersDto(List<FoodQuantityDto> foodQuantities, UsersDto userDto, LocalDate orderDate) {
+		super();
+		this.foodQuantities = foodQuantities;
+		this.userDto = userDto;
+		this.orderDate = orderDate;
+	}
+
+	public OrdersDto() {
+		
+	}
+
 	public List<FoodQuantityDto> getFoodQuantities() {
 		return foodQuantities;
 	}

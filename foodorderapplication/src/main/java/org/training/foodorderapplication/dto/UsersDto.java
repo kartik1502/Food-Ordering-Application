@@ -6,6 +6,17 @@ public class UsersDto {
 
 	private String userEmail;
 
+
+	public UsersDto(String userName, String userEmail) {
+		super();
+		this.userName = userName;
+		this.userEmail = userEmail;
+	}
+
+	public UsersDto() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getUserName() {
 		return userName;
 	}
