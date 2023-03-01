@@ -10,13 +10,13 @@ import lombok.Data;
 @Entity
 @Data
 public class Vendor {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int vendorId;
-
+	
 	private String vendorName;
-
+	
 	private String companyName;
 
 }

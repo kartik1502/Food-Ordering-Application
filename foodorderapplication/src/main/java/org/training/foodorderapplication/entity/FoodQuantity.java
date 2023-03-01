@@ -15,11 +15,11 @@ public class FoodQuantity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int foodQuantityId;
-
+  
 	private String foodName;
-
+	
 	@ManyToOne
 	private Vendor vendor;
-
+	
 	private int quantity;
 }

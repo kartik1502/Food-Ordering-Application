@@ -19,13 +19,13 @@ public class Orders {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ordersId;
-
+	
 	@OneToMany
 	private List<FoodQuantity> foodQuantities;
-
+	
 	@ManyToOne
 	private Users user;
-
+	
 	private LocalDate orderDate;
-
+	
 }
