@@ -9,5 +9,7 @@ import org.training.foodorderapplication.dto.OrdersDto;
 public interface OrdersService {
 
 	List<OrdersDto> purchaseHistory(int userId, String filterType);
+  
+  ResponseDto order(int userId, List<FoodQuantityDto> quantityDtos);
 
 }

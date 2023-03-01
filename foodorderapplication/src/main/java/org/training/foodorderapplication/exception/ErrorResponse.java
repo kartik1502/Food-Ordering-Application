@@ -3,6 +3,7 @@ package org.training.foodorderapplication.exception;
 import java.util.List;
 
 public class ErrorResponse {
+
 	private long errorCode;
 
 	private List<String> errorDetails;
@@ -32,5 +33,4 @@ public class ErrorResponse {
 	public void setErrorDetails(List<String> errorDetails) {
 		this.errorDetails = errorDetails;
 	}
-
 }

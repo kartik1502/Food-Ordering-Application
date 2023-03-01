@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.training.foodorderapplication.entity.Orders;
 
 public interface OrdersRepository extends JpaRepository<Orders, Integer> {
+
 	@Query(value = "SELECT * FROM foodorderapplication.orders where WEEKOFYEAR(order_date)= WEEKOFYEAR(CURDATE())-1 and user_user_id = ?1", nativeQuery = true)
 	List<Orders> findByUserWeek(int userId);
 
