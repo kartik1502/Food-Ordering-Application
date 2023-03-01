@@ -47,6 +47,10 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		errors.add(ex.getLocalizedMessage());
 		return new ResponseEntity<>(new ErrorResponse(404l, errors), HttpStatus.NOT_FOUND);
 	}
-	
-
+  
+  @ExceptionHandler(value = NoSearchDataException.class)
+	public ResponseEntity<Object> exception(NoSearchDataException exception) {
+		return new ResponseEntity<>("No such Food or Vendor exists", HttpStatus.NOT_FOUND);
+	}
+  
 }

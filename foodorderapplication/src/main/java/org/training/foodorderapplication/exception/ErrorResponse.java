@@ -32,6 +32,5 @@ public class ErrorResponse {
 
 	public void setErrors(List<String> errors) {
 		this.errors = errors;
-	}
 
 }

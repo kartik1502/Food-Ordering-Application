@@ -17,6 +17,8 @@ public class FoodQuantity {
 	private int foodQuantityId;
 	
 	private int foodId;
+  
+	private String foodName;
 	
 	@ManyToOne
 	private Vendor vendor;

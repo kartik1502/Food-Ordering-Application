@@ -7,5 +7,7 @@ import org.training.foodorderapplication.entity.Vendor;
 public interface VendorService {
 
 	Optional<Vendor> findById(int vendorId);
+  
+	Vendor findByVendorName(String foodVendorName);
 
 }

@@ -17,6 +17,10 @@ public class VendorServiceImpl implements VendorService {
 	@Override
 	public Optional<Vendor> findById(int vendorId) {
 		return repository.findById(vendorId); 
+
+	@Override
+	public Vendor findByVendorName(String foodVendorName) {
+		return repository.findByVendorName(foodVendorName);
 	}
 
 }
