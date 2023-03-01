@@ -12,6 +12,4 @@ public interface FoodItemRepository extends JpaRepository<FoodItem, Integer> {
 
 	Optional<FoodItem> findByFoodItemIdInAndVendorsIn(Set<Integer> foodIds, Collection<Vendor> vendors);
 
-
-
 }

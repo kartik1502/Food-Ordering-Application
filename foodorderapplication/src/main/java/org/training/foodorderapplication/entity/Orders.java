@@ -22,14 +22,14 @@ public class Orders {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ordersId;
-	
+
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<FoodQuantity> foodQuantities;
-	
+
 	@ManyToOne
 	private Users user;
-	
+
 	@CreationTimestamp
 	private LocalDate orderDate;
-	
+
 }
