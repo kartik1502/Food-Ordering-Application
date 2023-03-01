@@ -1,9 +1,11 @@
 package org.training.foodorderapplication.service;
 
+import java.util.List;
+
 import org.training.foodorderapplication.entity.Vendor;
 
 public interface VendorService {
 
-	Vendor findByVendorName(String foodVendorName);
+	List<Vendor> findByVendorNameContainingIgnoreCase(String foodVendorName);
 
 }

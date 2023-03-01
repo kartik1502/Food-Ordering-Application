@@ -1,5 +1,7 @@
 package org.training.foodorderapplication.service.implementation;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.training.foodorderapplication.entity.Vendor;
@@ -13,8 +15,8 @@ public class VendorServiceImpl implements VendorService {
 	private VendorRepository vendorRepository;
 
 	@Override
-	public Vendor findByVendorName(String foodVendorName) {
-		return vendorRepository.findByVendorName(foodVendorName);
+	public List<Vendor> findByVendorNameContainingIgnoreCase(String foodVendorName) {
+		return vendorRepository.findByVendorNameContainingIgnoreCase(foodVendorName);
 	}
 
 }

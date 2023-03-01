@@ -8,7 +8,7 @@ import org.training.foodorderapplication.entity.Vendor;
 
 public interface FoodItemRepository extends JpaRepository<FoodItem, Integer> {
 
-	List<FoodItem> findByItemNameContains(String foodVendorName);
+	List<FoodItem> findByItemNameContainingIgnoreCase(String foodVendorName);
 
 	List<FoodItem> findByVendors(Vendor vendors);
 

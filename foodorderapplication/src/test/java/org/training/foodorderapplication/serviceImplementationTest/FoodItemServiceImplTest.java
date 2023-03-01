@@ -1,4 +1,4 @@
-package org.training.foodorderapplication.serviceImplTest;
+package org.training.foodorderapplication.serviceImplementationTest;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.when;
@@ -18,8 +18,8 @@ import org.training.foodorderapplication.entity.FoodItem;
 import org.training.foodorderapplication.entity.Vendor;
 import org.training.foodorderapplication.exception.NoSearchDataException;
 import org.training.foodorderapplication.repository.FoodItemRepository;
-import org.training.foodorderapplication.repository.VendorRepository;
 import org.training.foodorderapplication.service.implementation.FoodItemServiceImpl;
+import org.training.foodorderapplication.service.implementation.VendorServiceImpl;
 
 @ExtendWith(SpringExtension.class)
 public class FoodItemServiceImplTest {
@@ -28,7 +28,7 @@ public class FoodItemServiceImplTest {
 	private FoodItemRepository itemRepository;
 
 	@Mock
-	private VendorRepository vendorRepository;
+	private VendorServiceImpl vendorService;
 
 	@InjectMocks
 	private FoodItemServiceImpl foodItemService;
@@ -58,8 +58,8 @@ public class FoodItemServiceImplTest {
 
 		foodItem2.setVendors(vendor);
 
-		when(itemRepository.findByItemNameContains(foodVendorName)).thenReturn(item);
-		when(vendorRepository.findByVendorName(foodVendorName)).thenReturn(vendor1);
+		when(itemRepository.findByItemNameContainingIgnoreCase(foodVendorName)).thenReturn(item);
+		when(vendorService.findByVendorNameContainingIgnoreCase(foodVendorName)).thenReturn(vendor);
 		when(itemRepository.findByVendors(vendor1)).thenReturn(item);
 		List<FoodItemDto> result = foodItemService.getFoodVendorName(foodVendorName);
 		Assertions.assertEquals(2, result.size());
@@ -76,6 +76,15 @@ public class FoodItemServiceImplTest {
 	{
 
 		String foodVendorName = "divya";
+		Vendor vendor1 = new Vendor();
+		vendor1.setVendorId(1);
+		vendor1.setVendorName("divya");
+		Vendor vendor2 = new Vendor();
+		vendor2.setVendorId(2);
+		vendor2.setVendorName("priya");
+		Vendor vendor3=new Vendor();
+		List<Vendor> vendor = Arrays.asList(vendor1, vendor2,vendor3);
+
 		List<FoodItem> item = new ArrayList<>();
 		FoodItem foodItem1 = new FoodItem();
 		foodItem1.setItemName("coffee");
@@ -83,22 +92,14 @@ public class FoodItemServiceImplTest {
 		FoodItem foodItem2 = new FoodItem();
 		foodItem2.setItemName("tea");
 		foodItem2.setItemId(2);
-		item.add(foodItem1);
-		item.add(foodItem2);
-
-		Vendor vendor1 = new Vendor();
-		vendor1.setVendorId(1);
-		vendor1.setVendorName("divya");
-		Vendor vendor2 = new Vendor();
-		vendor2.setVendorId(2);
-		vendor2.setVendorName("priya");
-		List<Vendor> vendor = Arrays.asList(vendor1, vendor2);
 		foodItem1.setVendors(vendor);
 
 		foodItem2.setVendors(vendor);
+		item.add(foodItem1);
+		item.add(foodItem2);
 
-		when(itemRepository.findByItemNameContains(foodVendorName)).thenReturn(item);
-		when(vendorRepository.findByVendorName(foodVendorName)).thenReturn(vendor1);
+		when(itemRepository.findByItemNameContainingIgnoreCase(foodVendorName)).thenReturn(item);
+		when(vendorService.findByVendorNameContainingIgnoreCase(foodVendorName)).thenReturn(vendor);
 		when(itemRepository.findByVendors(vendor1)).thenReturn(item);
 		assertThrows(NoSearchDataException.class, () ->
 
@@ -117,10 +118,11 @@ public class FoodItemServiceImplTest {
 		Vendor vendor1 = new Vendor();
 		vendor1.setVendorId(1);
 		vendor1.setVendorName("divya");
+
 		List<Vendor> vendor = Arrays.asList(vendor1);
 		foodItem1.setVendors(vendor);
-		when(itemRepository.findByItemNameContains(foodVendorName)).thenReturn(item);
-		when(vendorRepository.findByVendorName(foodVendorName)).thenReturn(vendor1);
+		when(itemRepository.findByItemNameContainingIgnoreCase(foodVendorName)).thenReturn(item);
+		when(vendorService.findByVendorNameContainingIgnoreCase(foodVendorName)).thenReturn(vendor);
 		when(itemRepository.findByVendors(vendor1)).thenReturn(item);
 
 		List<FoodItemDto> result = foodItemService.getFoodVendorName(foodVendorName);
