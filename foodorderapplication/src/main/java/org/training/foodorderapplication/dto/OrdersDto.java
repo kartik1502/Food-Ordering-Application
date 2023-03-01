@@ -1,11 +1,14 @@
 package org.training.foodorderapplication.dto;
 
-
 import java.time.LocalDate;
 import java.util.List;
 
 public class OrdersDto {
+	private List<FoodQuantityDto> foodQuantities;
 
+	private UsersDto userDto;
+
+	private LocalDate orderDate;
 
 	public List<FoodQuantityDto> getFoodQuantities() {
 		return foodQuantities;
@@ -14,7 +17,6 @@ public class OrdersDto {
 	public void setFoodQuantities(List<FoodQuantityDto> foodQuantities) {
 		this.foodQuantities = foodQuantities;
 	}
-
 
 	public UsersDto getUserDto() {
 		return userDto;
@@ -32,12 +34,4 @@ public class OrdersDto {
 		this.orderDate = orderDate;
 	}
 
-	
-	private List<FoodQuantityDto> foodQuantities;
-	
-	
-	private UsersDto userDto;
-	
-	private LocalDate orderDate;
-	
 }

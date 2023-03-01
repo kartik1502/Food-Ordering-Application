@@ -1,25 +1,34 @@
 package org.training.foodorderapplication.dto;
 
-import lombok.Data;
-
-@Data
 public class FoodQuantityDto {
 
-	private int foodId;
+	public int getQuantity() {
+		return quantity;
+	}
 
-	private int vendorId;
-
-	private int quantity;
-
-	public FoodQuantityDto(int foodId, int vendorId, int quantity) {
-		super();
-		this.foodId = foodId;
-		this.vendorId = vendorId;
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
-	public FoodQuantityDto() {
-		super();
+	public int getFoodId() {
+		return foodId;
 	}
 
+	public void setFoodId(int foodId) {
+		this.foodId = foodId;
+	}
+
+	public VendorDto getVendor() {
+		return vendor;
+	}
+
+	public void setVendor(VendorDto vendor) {
+		this.vendor = vendor;
+	}
+
+	private int foodId;
+
+	private VendorDto vendor;
+
+	private int quantity;
 }

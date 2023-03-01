@@ -11,11 +11,48 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-import lombok.Data;
-
 @Entity
-@Data
 public class Item {
+
+	public int getItemId() {
+		return itemId;
+	}
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
+	public String getItemName() {
+		return itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public List<Vendor> getVendors() {
+		return vendors;
+	}
+
+	public void setVendors(List<Vendor> vendors) {
+		this.vendors = vendors;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

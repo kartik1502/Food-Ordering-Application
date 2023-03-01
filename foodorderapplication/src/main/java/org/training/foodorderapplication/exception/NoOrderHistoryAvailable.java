@@ -1,16 +1,15 @@
 package org.training.foodorderapplication.exception;
 
-public class NoSuchFoodExists extends RuntimeException {
-
+public class NoOrderHistoryAvailable extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 	private String message;
 
-	public NoSuchFoodExists(String message) {
+	public NoOrderHistoryAvailable(String message) {
 		super();
 		this.message = message;
 	}
 
-	public NoSuchFoodExists() {
+	public NoOrderHistoryAvailable() {
 		super();
 	}
 

@@ -14,33 +14,18 @@ import org.training.foodorderapplication.dto.OrdersDto;
 import org.training.foodorderapplication.repository.OrdersRepository;
 import org.training.foodorderapplication.service.OrdersService;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.training.foodorderapplication.dto.FoodQuantityDto;
-import org.training.foodorderapplication.dto.ResponseDto;
-
 @RestController
 public class OrdersController {
+	@Autowired
+	OrdersRepository ordersRepository;
 
 	@Autowired
-	private OrdersService service;
-
-	@PostMapping("/users/{userId}/orders")
-	public ResponseEntity<ResponseDto> order(@PathVariable int userId,
-			@RequestBody List<FoodQuantityDto> quantityDtos) {
-
-		return new ResponseEntity<>(service.order(userId, quantityDtos), HttpStatus.OK);
-	}
+	OrdersService ordersService;
 
 	@GetMapping("/users/{userId}/orders")
 	public ResponseEntity<List<OrdersDto>> purchaseHistory(@RequestParam int userId,
-			@RequestParam @Pattern(regexp = "^(week|month)$", message = "Should be either week or month") String filterType) {
-		return new ResponseEntity<>(service.purchaseHistory(userId, filterType), HttpStatus.OK);
+			@RequestParam @Pattern(regexp = "^([wW][eE]{2}[kK]|[mM][oO][nN][tT][hH])$", message = "Should be either week or month") String filterType) {
+		return new ResponseEntity<>(ordersService.purchaseHistory(userId, filterType), HttpStatus.OK);
 
 	}
-  
-  
 }
-
