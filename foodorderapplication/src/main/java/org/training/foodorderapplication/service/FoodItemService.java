@@ -15,5 +15,4 @@ public interface FoodItemService {
 
 	Optional<FoodItem> findByFoodItemIdAndVendors(Set<Integer> foodIds, Collection<Vendor> collection);
 
-
 }

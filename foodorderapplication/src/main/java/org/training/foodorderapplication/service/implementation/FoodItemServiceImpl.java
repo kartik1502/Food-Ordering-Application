@@ -13,7 +13,7 @@ import org.training.foodorderapplication.service.FoodItemService;
 
 @Service
 public class FoodItemServiceImpl implements FoodItemService {
-	
+
 	@Autowired
 	private FoodItemRepository repository;
 

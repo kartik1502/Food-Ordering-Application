@@ -14,18 +14,16 @@ public class VendorServiceImpl implements VendorService {
 
 	@Autowired
 	private VendorRepository repository;
-	
+
 	@Override
 	public Optional<Vendor> findById(int vendorId) {
-		return repository.findById(vendorId); 
+		return repository.findById(vendorId);
 	}
-
 
 	@Override
 	public List<Vendor> findAllByVendorIdIn(List<Integer> vendorIds) {
 		return repository.findAllByVendorIdIn(vendorIds);
 	}
-
 
 	@Override
 	public List<Vendor> findAll() {

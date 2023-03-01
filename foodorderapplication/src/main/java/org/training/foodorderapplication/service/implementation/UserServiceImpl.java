@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UsersRepository repository;
-	
+
 	@Override
 	public Optional<Users> findById(int userId) {
 		return repository.findById(userId);

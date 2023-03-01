@@ -20,16 +20,14 @@ public class FoodItem {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int foodItemId;
-	
+
 	private String foodItemName;
-	
+
 	private float price;
-	
+
 	private int quantity;
-	
+
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "ItemVendors",
-			joinColumns = @JoinColumn(name = "foodItemId", referencedColumnName = "foodItemId"),
-			inverseJoinColumns = @JoinColumn(name = "vendorId", referencedColumnName = "vendorId"))
+	@JoinTable(name = "ItemVendors", joinColumns = @JoinColumn(name = "foodItemId", referencedColumnName = "foodItemId"), inverseJoinColumns = @JoinColumn(name = "vendorId", referencedColumnName = "vendorId"))
 	private List<Vendor> vendors;
 }
