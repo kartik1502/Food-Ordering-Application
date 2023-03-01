@@ -2,11 +2,14 @@ package org.training.foodorderapplication.service;
 
 import java.util.List;
 
-import org.training.foodorderapplication.dto.FoodQuantityDto;
-import org.training.foodorderapplication.dto.ResponseDto;
+import org.springframework.stereotype.Service;
+import org.training.foodorderapplication.dto.OrdersDto;
 
+@Service
 public interface OrdersService {
 
-	ResponseDto order(int userId, List<FoodQuantityDto> quantityDtos);
+	List<OrdersDto> purchaseHistory(int userId, String filterType);
+  
+  ResponseDto order(int userId, List<FoodQuantityDto> quantityDtos);
 
 }

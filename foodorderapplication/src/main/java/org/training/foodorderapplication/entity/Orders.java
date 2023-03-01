@@ -31,5 +31,5 @@ public class Orders {
 	
 	@CreationTimestamp
 	private LocalDate orderDate;
-	
+
 }

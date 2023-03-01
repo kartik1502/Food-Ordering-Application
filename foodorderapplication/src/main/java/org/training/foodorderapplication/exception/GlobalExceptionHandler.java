@@ -26,7 +26,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		ErrorResponse response = new ErrorResponse(400l, errorDetails);
 		return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 	}
-	
+  
 	@ExceptionHandler(NoSuchUserExists.class)
 	public ResponseEntity<Object> handleNoSuchUserExistsException(NoSuchUserExists ex, WebRequest req){
 		List<String> errors = new ArrayList<>();
@@ -53,4 +53,5 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler{
 		return new ResponseEntity<>("No such Food or Vendor exists", HttpStatus.NOT_FOUND);
 	}
   
+
 }

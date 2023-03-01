@@ -6,12 +6,12 @@ public class ErrorResponse {
 
 	private long errorCode;
 
-	private List<String> errors;
+	private List<String> errorDetails;
 
-	public ErrorResponse(long errorCode, List<String> errors) {
+	public ErrorResponse(long errorCode, List<String> errorDetails) {
 		super();
 		this.errorCode = errorCode;
-		this.errors = errors;
+		this.errorDetails = errorDetails;
 	}
 
 	public ErrorResponse() {
@@ -26,11 +26,11 @@ public class ErrorResponse {
 		this.errorCode = errorCode;
 	}
 
-	public List<String> getErrors() {
-		return errors;
+	public List<String> getErrorDetails() {
+		return errorDetails;
 	}
 
-	public void setErrors(List<String> errors) {
-		this.errors = errors;
-
+	public void setErrorDetails(List<String> errorDetails) {
+		this.errorDetails = errorDetails;
+	}
 }

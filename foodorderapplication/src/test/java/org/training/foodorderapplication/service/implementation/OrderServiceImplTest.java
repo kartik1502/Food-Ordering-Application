@@ -1,6 +1,9 @@
 package org.training.foodorderapplication.service.implementation;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -16,28 +19,40 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.springframework.beans.BeanUtils;
+
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.training.foodorderapplication.dto.FoodQuantityDto;
+import org.training.foodorderapplication.dto.OrdersDto;
+import org.training.foodorderapplication.dto.UsersDto;
+import org.training.foodorderapplication.dto.VendorDto;
+
+import org.springframework.beans.BeanUtils;
 import org.training.foodorderapplication.dto.ResponseDto;
 import org.training.foodorderapplication.entity.FoodItem;
+
 import org.training.foodorderapplication.entity.FoodQuantity;
 import org.training.foodorderapplication.entity.Orders;
 import org.training.foodorderapplication.entity.Users;
 import org.training.foodorderapplication.entity.Vendor;
-import org.training.foodorderapplication.exception.NoSuchFoodExists;
+
 import org.training.foodorderapplication.exception.NoSuchUserExists;
-import org.training.foodorderapplication.exception.NoSuchVendorExists;
 import org.training.foodorderapplication.repository.OrdersRepository;
-import org.training.foodorderapplication.service.FoodItemService;
 import org.training.foodorderapplication.service.UserService;
+
+import org.training.foodorderapplication.exception.NoSuchFoodExists;
+import org.training.foodorderapplication.exception.NoSuchVendorExists;
+import org.training.foodorderapplication.service.FoodItemService;
 import org.training.foodorderapplication.service.VendorService;
+
 
 @ExtendWith(SpringExtension.class)
 public class OrderServiceImplTest {
 
-	@InjectMocks
-	private OrdersServiceImpl orderService;
+  @InjectMocks
+	private OrdersServiceImpl ordersService;
+
+	@Mock
+	private OrdersRepository ordersRepository;
 
 	@Mock
 	private UserService userService;
@@ -47,19 +62,96 @@ public class OrderServiceImplTest {
 
 	@Mock
 	private FoodItemService foodItemService;
-
-	@Mock
-	private OrdersRepository ordersRepository;
-
-	@Test
-	void testOrderSuccess() {
-
+  
+  @Test
+	public void testPurchaseHistoryWeek() {
+		int userId = 1;
 		Users user = new Users();
 		user.setUserId(1);
 		Optional<Users> userOptional = Optional.of(user);
 		Mockito.when(userService.findById(1)).thenReturn(userOptional);
-
+		String filterType = "week";
+		List<Orders> orders = new ArrayList<>();
+		Orders order = new Orders();
+		order.setOrderDate(LocalDate.now());
+		FoodQuantity foodQuantity = new FoodQuantity();
+		foodQuantity.setFoodQuantityId(1);
 		Vendor vendor = new Vendor();
+		vendor.setVendorId(1);
+		foodQuantity.setVendor(vendor);
+		order.setFoodQuantities(Arrays.asList(foodQuantity));
+		order.setUser(user);
+		orders.add(order);
+		Mockito.when(ordersRepository.findByUserWeek(userId)).thenReturn(orders);
+
+		List<OrdersDto> expectedOrders = new ArrayList<>();
+		OrdersDto expectedOrder = new OrdersDto();
+		expectedOrder.setOrderDate(LocalDate.now());
+		FoodQuantityDto foodQuantityDto = new FoodQuantityDto();
+		foodQuantityDto.setFoodId(1);
+		VendorDto vendorDto = new VendorDto();
+		vendorDto.setVendorName("nadiya");
+		foodQuantityDto.setVendor(vendorDto);
+		expectedOrder.setFoodQuantities(Arrays.asList(foodQuantityDto));
+		UsersDto userDto = new UsersDto();
+		userDto.setUserName("saniya");
+		expectedOrder.setUserDto(userDto);
+		expectedOrders.add(expectedOrder);
+
+		List<OrdersDto> actualOrders = ordersService.purchaseHistory(userId, filterType);
+
+		assertEquals(expectedOrders.size(), actualOrders.size());
+		assertEquals(expectedOrders.get(0).getOrderDate(), actualOrders.get(0).getOrderDate());
+	}
+
+	
+
+	@Test
+	public void testPurchaseHistoryMonth() {
+		int userId = 1;
+  String filterType = "month";
+		List<Orders> orders = new ArrayList<>();
+		Orders order = new Orders();
+		order.setOrderDate(LocalDate.now());
+		FoodQuantity foodQuantity = new FoodQuantity();
+		foodQuantity.setFoodQuantityId(1);
+		Vendor vendor = new Vendor();
+		vendor.setVendorId(1);
+		foodQuantity.setVendor(vendor);
+		order.setFoodQuantities(Arrays.asList(foodQuantity));
+		
+		order.setUser(user);
+		orders.add(order);
+		Mockito.when(ordersRepository.findByUserMonth(userId)).thenReturn(orders);
+
+		List<OrdersDto> expectedOrders = new ArrayList<>();
+		OrdersDto expectedOrder = new OrdersDto();
+		expectedOrder.setOrderDate(LocalDate.now());
+		FoodQuantityDto foodQuantityDto = new FoodQuantityDto();
+		foodQuantityDto.setFoodId(1);
+		VendorDto vendorDto = new VendorDto();
+		vendorDto.setVendorName("munni");
+		foodQuantityDto.setVendor(vendorDto);
+		expectedOrder.setFoodQuantities(Arrays.asList(foodQuantityDto));
+		UsersDto userDto = new UsersDto();
+		userDto.setUserName("zareena");
+		expectedOrder.setUserDto(userDto);
+		expectedOrders.add(expectedOrder);
+
+		List<OrdersDto> actualOrders = ordersService.purchaseHistory(userId, filterType);
+
+		assertEquals(expectedOrders.size(), actualOrders.size());
+		assertEquals(expectedOrders.get(0).getOrderDate(), actualOrders.get(0).getOrderDate());
+	}
+	
+
+	@Test
+	void testOrderSuccess() {
+		Users user = new Users();
+		user.setUserId(1);
+		Optional<Users> userOptional = Optional.of(user);
+		Mockito.when(userService.findById(1)).thenReturn(userOptional);
+    Vendor vendor = new Vendor();
 		vendor.setVendorId(1);
 		Optional<Vendor> vendorOptional = Optional.of(vendor);
 		Mockito.when(vendorService.findById(1)).thenReturn(vendorOptional);
@@ -87,6 +179,26 @@ public class OrderServiceImplTest {
 		assertEquals(200, responseDto.getResponseCode());
 		assertEquals("Order placed Successfully", responseDto.getResponseMessage().get(0));
 	}
+		
+  @Test
+	public void testOrderWithSearchInvalidUser(){
+
+		Mockito.when(ordersRepository.findByUserMonth(Mockito.anyInt())).thenReturn(null);
+
+		List<FoodQuantityDto> foodQuantityDtos = new ArrayList<>();
+		FoodQuantityDto foodQuantityDto = new FoodQuantityDto();
+    foodQuantityDto.setVendorId(1);
+		foodQuantityDto.setFoodId(1);
+		foodQuantityDto.setQuantity(2);
+		foodQuantityDtos.add(foodQuantityDto);
+    NoSuchUserExists exception = assertThrows(NoSuchUserExists.class, () -> {
+			ordersService.purchaseHistory(1, "week")
+			orderService.order(1, foodQuantityDtos);
+		});
+		assertEquals("User with user Id:1 dose not exists", exception.getMessage());
+  }
+
+		
 
 	@Test
 	public void testOrderWithInvalidUser() {
@@ -94,18 +206,20 @@ public class OrderServiceImplTest {
 		Optional<Users> optionalUser = Optional.empty();
 		Mockito.when(userService.findById(Mockito.anyInt())).thenReturn(optionalUser);
 
-		List<FoodQuantityDto> foodQuantityDtos = new ArrayList<>();
+    List<FoodQuantityDto> foodQuantityDtos = new ArrayList<>();
 		FoodQuantityDto foodQuantityDto = new FoodQuantityDto();
-		foodQuantityDto.setVendorId(1);
+    foodQuantityDto.setVendorId(1);
 		foodQuantityDto.setFoodId(1);
 		foodQuantityDto.setQuantity(2);
 		foodQuantityDtos.add(foodQuantityDto);
-
-		NoSuchUserExists exception = assertThrows(NoSuchUserExists.class, () -> {
+    NoSuchUserExists exception = assertThrows(NoSuchUserExists.class, () -> {
+			
 			orderService.order(1, foodQuantityDtos);
 		});
 		assertEquals("User with user Id:1 dose not exists", exception.getMessage());
+
 	}
+
 
 	@Test
 	void testOrderInvalidVendor() {
