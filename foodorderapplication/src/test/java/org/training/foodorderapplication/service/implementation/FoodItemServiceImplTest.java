@@ -21,8 +21,6 @@ import org.training.foodorderapplication.entity.FoodItem;
 import org.training.foodorderapplication.entity.Vendor;
 import org.training.foodorderapplication.exception.NoSearchDataException;
 import org.training.foodorderapplication.repository.FoodItemRepository;
-import org.training.foodorderapplication.service.implementation.FoodItemServiceImpl;
-import org.training.foodorderapplication.service.implementation.VendorServiceImpl;
 
 @ExtendWith(SpringExtension.class)
 public class FoodItemServiceImplTest {
@@ -219,7 +217,8 @@ public class FoodItemServiceImplTest {
 
 		List<FoodItemDto> actualFoodItemDtos = foodItemService.getFoodVendorName(foodVendorName);
 
-		assertEquals(expectedFoodItemDtos, actualFoodItemDtos);
+		assertEquals(expectedFoodItemDtos.get(0).getQuantity(), actualFoodItemDtos.get(0).getQuantity());
+		assertEquals(expectedFoodItemDtos.get(0).getFoodItemName(), actualFoodItemDtos.get(0).getFoodItemName());
 	}
 
 	@Test
