@@ -28,6 +28,7 @@ public class FoodItem {
 	private int quantity;
 
 	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "ItemVendors", joinColumns = @JoinColumn(name = "foodItemId", referencedColumnName = "foodItemId"), inverseJoinColumns = @JoinColumn(name = "vendorId", referencedColumnName = "vendorId"))
+	@JoinTable(name = "foodItemVendors", joinColumns = @JoinColumn(name = "foodItemId", referencedColumnName = "foodItemId"), inverseJoinColumns = @JoinColumn(name = "vendorId", referencedColumnName = "vendorId"))
 	private List<Vendor> vendors;
+
 }
