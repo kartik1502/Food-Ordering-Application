@@ -15,13 +15,13 @@ import org.training.foodorderapplication.dto.FoodItemDto;
 import org.training.foodorderapplication.service.FoodItemService;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/fooditems")
 public class FoodItemController {
 
 	@Autowired
 	private FoodItemService foodItemService;
 
-	@GetMapping("/items")
+	@GetMapping
 	public ResponseEntity<List<FoodItemDto>> getFoodVendorName(@RequestParam @Size(min=3) String foodVendorName) {
 		return new ResponseEntity<>(foodItemService.getFoodVendorName(foodVendorName), HttpStatus.OK);
 	}
