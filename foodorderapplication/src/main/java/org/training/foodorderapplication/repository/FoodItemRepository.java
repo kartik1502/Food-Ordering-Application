@@ -10,8 +10,6 @@ public interface FoodItemRepository extends JpaRepository<FoodItem, Integer> {
 
 	List<FoodItem> findByFoodItemNameContainingIgnoreCase(String foodVendorName);
 
-	List<FoodItem> findByVendors(Vendor vendor1);
-
 	List<FoodItem> findByVendorsIn(List<Vendor> vendors);
 
 }
