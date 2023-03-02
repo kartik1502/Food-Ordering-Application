@@ -21,7 +21,7 @@ public class FoodItemController {
 	@Autowired
 	private FoodItemService foodItemService;
 
-	@GetMapping("/items")
+	@GetMapping("/fooditems")
 	public ResponseEntity<List<FoodItemDto>> getFoodVendorName(@RequestParam @Size(min=3) String foodVendorName) {
 		return new ResponseEntity<>(foodItemService.getFoodVendorName(foodVendorName), HttpStatus.OK);
 	}
