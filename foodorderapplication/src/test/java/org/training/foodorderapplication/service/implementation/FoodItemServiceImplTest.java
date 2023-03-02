@@ -140,7 +140,7 @@ public class FoodItemServiceImplTest {
 	void testFoodVendorName() {
 		String foodVendorName = "divya";
 
-		// Mock data
+		
 		List<FoodItem> foodItems = new ArrayList<>();
 		FoodItem foodItem = new FoodItem();
 		foodItem.setFoodItemId(1);
@@ -151,11 +151,7 @@ public class FoodItemServiceImplTest {
 		foodItem.setVendors(List.of(vendor));
 		foodItems.add(foodItem);
 		when(foodItemRepository.findByFoodItemNameContainingIgnoreCase(foodVendorName)).thenReturn(foodItems);
-
-		// Test
 		List<FoodItemDto> foodItemDtos = foodItemService.getFoodVendorName(foodVendorName);
-
-		// Verify results
 		Assertions.assertNotNull(foodItemDtos);
 		Assertions.assertEquals(foodItems.size(), foodItemDtos.size());
 
