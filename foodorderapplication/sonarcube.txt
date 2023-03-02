@@ -1,0 +1,1 @@
+mvn clean verify sonar:sonar -Dsonar.projectKey=foodorderapplication -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqp_fc35ff8a2c55ad84ddb441a242c503459f1da871
