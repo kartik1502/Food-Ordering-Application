@@ -63,7 +63,7 @@ public class FoodItemServiceImplTest {
 
 		when(foodItemRepository.findByFoodItemNameContainingIgnoreCase(foodVendorName)).thenReturn(item);
 		when(vendorService.findByVendorNameContainingIgnoreCase(foodVendorName)).thenReturn(vendor);
-		when(foodItemRepository.findByVendors(vendor1)).thenReturn(item);
+		when(foodItemRepository.findByVendorsIn(vendor)).thenReturn(item);
 		List<FoodItemDto> result = foodItemService.getFoodVendorName(foodVendorName);
 		Assertions.assertEquals(2, result.size());
 		Assertions.assertEquals("coffee", result.get(0).getFoodItemName());
@@ -103,7 +103,7 @@ public class FoodItemServiceImplTest {
 
 		when(foodItemRepository.findByFoodItemNameContainingIgnoreCase(foodVendorName)).thenReturn(item);
 		when(vendorService.findByVendorNameContainingIgnoreCase(foodVendorName)).thenReturn(vendor);
-		when(foodItemRepository.findByVendors(vendor1)).thenReturn(item);
+		when(foodItemRepository.findByVendorsIn(vendor)).thenReturn(item);
 		assertThrows(NoSearchDataException.class, () ->
 
 		foodItemService.getFoodVendorName("geetha"));
@@ -126,7 +126,7 @@ public class FoodItemServiceImplTest {
 		foodItem1.setVendors(vendor);
 		when(foodItemRepository.findByFoodItemNameContainingIgnoreCase(foodVendorName)).thenReturn(item);
 		when(vendorService.findByVendorNameContainingIgnoreCase(foodVendorName)).thenReturn(vendor);
-		when(foodItemRepository.findByVendors(vendor1)).thenReturn(item);
+		when(foodItemRepository.findByVendorsIn(vendor)).thenReturn(item);
 
 		List<FoodItemDto> result = foodItemService.getFoodVendorName(foodVendorName);
 
